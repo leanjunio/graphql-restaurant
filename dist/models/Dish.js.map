@@ -1,0 +1,1 @@
+{"version":3,"file":"Dish.js","sourceRoot":"","sources":["../../src/models/Dish.ts"],"names":[],"mappings":";;;AAAA,uCAAyC;AAEzC,MAAM,UAAU,GAAG,IAAI,iBAAM,CAAC;IAC5B,IAAI,EAAE;QACJ,IAAI,EAAE,MAAM;QACZ,QAAQ,EAAE,IAAI;KACf;CACF,CAAC,CAAC;AAMU,QAAA,IAAI,GAAG,gBAAK,CAAC,MAAM,EAAE,UAAU,CAAC,CAAC"}
