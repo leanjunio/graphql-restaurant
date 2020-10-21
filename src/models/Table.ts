@@ -7,16 +7,21 @@ import { ICustomer } from './Customer';
 const TableSchema = new Schema({
   server: {
     type: Schema.Types.ObjectId,
+    required: true,
     ref: 'Server',
   },
   restaurant: {
     type: Schema.Types.ObjectId,
+    required: true,
     ref: 'Restaurant',
   },
-  customer: {
-    type: Schema.Types.ObjectId,
-    ref: 'Customer',
-  },
+  customer: [
+    {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'Customer',
+    },
+  ],
 });
 
 export interface ITable {
