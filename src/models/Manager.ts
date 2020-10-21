@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+
 import { IEmployee, Employee } from './Employee';
 
 const ManagerSchema = new Schema({
@@ -10,7 +11,7 @@ const ManagerSchema = new Schema({
   ],
 });
 
-export interface IManager {
+export interface IManager extends IEmployee {
   employees: IEmployee[];
 }
 
