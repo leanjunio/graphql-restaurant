@@ -11,9 +11,9 @@ const apollo_server_1 = require("apollo-server");
 const mongoose_1 = require("mongoose");
 const schema_1 = require("./schema");
 const resolvers_1 = require("./resolvers");
-const server = new apollo_server_1.ApolloServer({ typeDefs: schema_1.typeDefs, resolvers: resolvers_1.resolvers });
 const DB_URL = (_a = process.env.DATABASE_URL) !== null && _a !== void 0 ? _a : 'mopngodb://localhost:27017/restaurant';
 mongoose_1.connect(DB_URL, { useNewUrlParser: true });
+const server = new apollo_server_1.ApolloServer({ typeDefs: schema_1.typeDefs, resolvers: resolvers_1.resolvers });
 server.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`);
 });
