@@ -1,3 +1,4 @@
+import { prop } from '@typegoose/typegoose/lib/prop';
 import { Schema } from 'mongoose';
 
 import { IDish } from './Dish';
@@ -15,6 +16,11 @@ const CookSchema = new Schema({
 
 export interface ICook extends IEmployee {
   dishes: IDish[];
+}
+
+class Cook {
+  @prop({ type: () => [Cook] })
+  public cook?: Cook[];
 }
 
 export const Cook = Employee.discriminator('Cook', CookSchema);

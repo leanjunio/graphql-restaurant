@@ -1,10 +1,28 @@
 import { IDish, Dish } from './models/Dish';
+import { Restaurant } from './models/Restaurant';
 
 export const resolvers = {
-  Query: {
-    dishes: () => {
-      return Dish.find();
+  IEmployee: {
+    __resolveType(obj, context, info) {
+      if (obj.dish) {
+        return 'Cook';
+      }
+
+      if (obj.table) {
+        return 'Server';
+      }
+
+      if (obj.employee) {
+        return 'Manager';
+      }
+
+      return 'Employee';
     },
+  },
+
+  Query: {
+    dishes: () => Dish.find(),
+    restaurant: () => Restaurant.findOne(),
   },
 
   Mutation: {

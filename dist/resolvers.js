@@ -1,28 +1,33 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resolvers = void 0;
 const Dish_1 = require("./models/Dish");
+const Restaurant_1 = require("./models/Restaurant");
 exports.resolvers = {
-    Query: {
-        dishes: () => {
-            return Dish_1.Dish.find();
+    IEmployee: {
+        __resolveType(obj, context, info) {
+            if (obj.dish) {
+                return 'Cook';
+            }
+            if (obj.table) {
+                return 'Server';
+            }
+            if (obj.employee) {
+                return 'Manager';
+            }
+            return 'Employee';
         },
     },
+    Query: {
+        dishes: () => Dish_1.Dish.find(),
+        restaurant: () => Restaurant_1.Restaurant.findOne(),
+    },
     Mutation: {
-        createDish: (_, { name }) => __awaiter(void 0, void 0, void 0, function* () {
+        createDish: async (_, { name }) => {
             const dish = new Dish_1.Dish({ name });
-            yield dish.save();
+            await dish.save();
             return dish;
-        }),
+        },
     },
 };
 //# sourceMappingURL=resolvers.js.map

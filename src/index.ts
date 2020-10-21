@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 dotenv.config({ path: resolve(__dirname, '../.env') });
 
+import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server';
 import { connect } from 'mongoose';
 

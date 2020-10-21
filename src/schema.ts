@@ -3,6 +3,8 @@ import { gql } from 'apollo-server';
 export const typeDefs = gql`
   type Query {
     dishes: [Dish!]!
+    dish: (id: ID!): Dish
+    restaurant: Restaurant # returns the current restaurant's info
   }
 
   type Mutation {
@@ -59,6 +61,7 @@ export const typeDefs = gql`
     name: String!
     position: String!
     salary: Float
+    employee: [Employee]
     restaurant: Restaurant
   }
 
