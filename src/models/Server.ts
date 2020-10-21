@@ -4,7 +4,7 @@ import { IEmployee, Employee } from './Employee';
 import { ITable } from './Table';
 
 const ServerSchema = new Schema({
-  tableId: {
+  table: {
     type: Schema.Types.ObjectId,
     ref: 'Table',
   },

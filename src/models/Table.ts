@@ -5,15 +5,15 @@ import { IRestaurant } from './Restaurant';
 import { ICustomer } from './Customer';
 
 const TableSchema = new Schema({
-  serverId: {
+  server: {
     type: Schema.Types.ObjectId,
     ref: 'Server',
   },
-  restaurantId: {
+  restaurant: {
     type: Schema.Types.ObjectId,
     ref: 'Restaurant',
   },
-  customerId: {
+  customer: {
     type: Schema.Types.ObjectId,
     ref: 'Customer',
   },

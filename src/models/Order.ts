@@ -5,10 +5,17 @@ const OrderSchema = new Schema({
     type: Number,
     required: true,
   },
+  dishes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Order',
+    },
+  ],
 });
 
 export interface IOrder {
   total: number;
+  orders: IOrder[];
 }
 
 export const Order = model('Order', OrderSchema);
