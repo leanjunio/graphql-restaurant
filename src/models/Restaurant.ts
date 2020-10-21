@@ -1,11 +1,12 @@
 import { model, Schema } from 'mongoose';
+import { IManager } from './Manager';
 
 const RestaurantSchema = new Schema({
   address: {
     type: String,
     required: true,
   },
-  managerId: {
+  manager: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: 'Manager',
@@ -14,7 +15,7 @@ const RestaurantSchema = new Schema({
 
 export interface IRestaurant {
   address: string;
-  managerId: Schema.Types.ObjectId;
+  manager: IManager;
 }
 
 export const Restaurant = model('Restaurant', RestaurantSchema);
