@@ -9,10 +9,10 @@ import { connect } from 'mongoose';
 import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 
-const server = new ApolloServer({ typeDefs, resolvers });
-
-const DB_URL = process.env.DATABASE_URL ?? 'mopngodb://localhost:27017/restaurant';
+const DB_URL = process.env.DATABASE_URL ?? 'mongodb://localhost:27017/restaurant';
 connect(DB_URL, { useNewUrlParser: true });
+
+const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url}`);
